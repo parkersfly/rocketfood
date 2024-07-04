@@ -7,37 +7,14 @@ export const Container = styled.div`
 
   > main {
     width: 100%;
+    gap: 2.4rem;
 
-    section {
+    section:first-child {
       margin-top: 6.2rem;
     }
-  }
 
-  .main-content {
-    padding-left: 2.4rem;
-  }
-
-  .inner {
-    gap: 2.7rem;
-  }
-
-  .carousel {
-    cursor: grab;
-    overflow: hidden;
-  }
-
-  @media (min-width: 600px) {
-    .main-content {
-      padding: 0 5rem;
-    }
-  }
-
-  @media (min-width: 1368px) {
-    .content {
-      > main {
-        max-width: 112rem;
-        margin: 0 auto;
-      }
+    section:last-child {
+      margin-bottom: 2.5rem;
     }
   }
 `
@@ -118,32 +95,6 @@ export const Banner = styled.div`
         font-family: Roboto;
         font-size: 1.6rem;
       }
-    }
-  }
-`
-export const Section = styled.section`
-  > h2 {
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: ${({ theme }) => theme.COLORS.LIGHT_300};
-
-    margin: 6.2rem 0 2.4rem 0;
-  }
-
-  > div {
-    width: 100%;
-    gap: 1.6rem;
-  }
-
-  @media (min-width: 1024px) {
-    > h2 {
-      font-size: 3.2rem;
-    }
-
-    > div {
-      gap: 2.7rem;
-      overflow: hidden;
-      justify-content: center;
     }
   }
 `

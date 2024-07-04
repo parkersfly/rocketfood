@@ -1,17 +1,12 @@
 import styled from 'styled-components'
 
-export const Container = styled.section`
+export const CarouselSectionContainer = styled.section`
+  gap: 2.4rem;
+
   > h3 {
     font-size: 1.8rem;
     font-weight: 500;
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
-
-    margin-bottom: 2.4rem;
-  }
-
-  > div {
-    width: 100%;
-    gap: 1.6rem;
   }
 
   @media (min-width: 1024px) {
