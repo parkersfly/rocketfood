@@ -2,7 +2,7 @@ import { Container, Banner, Section } from './styles'
 
 import { useEffect, useState } from 'react'
 
-import { api } from '../../services/api'
+// import { api } from '../../services/api'
 
 import { Card } from '../../components/Card'
 import { Carousel } from '../../components/Carousel'
