@@ -3,6 +3,7 @@ import { Container } from './styles'
 import '@splidejs/react-splide/css'
 
 import { Splide, SplideTrack } from '@splidejs/react-splide'
+import { CaretLeft, CaretRight } from '@phosphor-icons/react'
 
 export function Carousel({ children }) {
   return (
@@ -10,17 +11,27 @@ export function Carousel({ children }) {
       <Splide
         hasTrack={false}
         options={{
-          // type: 'loop',
           autoWidth: true,
           focus: 'center',
           gap: '1rem',
+          mediaQuery: 'min',
+          breakpoints: {
+            1280: {
+              focus: 0,
+              type: 'loop',
+            },
+          },
         }}
       >
         <SplideTrack>{children}</SplideTrack>
 
         <div className="splide__arrows">
-          <button className="splide__arrow splide__arrow--prev">Prev</button>
-          <button className="splide__arrow splide__arrow--next">Next</button>
+          <button className="splide__arrow splide__arrow--prev">
+            <CaretLeft />
+          </button>
+          <button className="splide__arrow splide__arrow--next">
+            <CaretRight />
+          </button>
         </div>
       </Splide>
     </Container>

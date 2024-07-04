@@ -163,6 +163,7 @@ export const Banner = styled.div`
 
   @media (min-width: ${RESIZE_WINDOW.XL}) {
     margin-top: 16.4rem;
+    padding: 0;
 
     .webImage {
       width: max-content;

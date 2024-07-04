@@ -22,6 +22,7 @@ export const Container = styled.div`
   .splide__arrow,
   .splide__pagination {
     display: none;
+    background: none;
   }
 
   @media (min-width: ${RESIZE_WINDOW.LG}) {
@@ -30,5 +31,19 @@ export const Container = styled.div`
 
   @media (min-width: ${RESIZE_WINDOW.XL}) {
     max-width: 112rem;
+
+    .splide__arrow {
+      display: block;
+    }
+
+    .splide__arrow svg {
+      fill: ${({ theme }) => theme.COLORS.LIGHT_100};
+      width: 4rem;
+      height: 4rem;
+    }
+
+    .splide__arrow--prev svg {
+      transform: scaleX(1);
+    }
   }
 `
