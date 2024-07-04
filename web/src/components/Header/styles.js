@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { RESIZE_WINDOW } from '../../styles/resizeWindow'
 
 export const Container = styled.header`
   width: 100%;
@@ -8,7 +9,7 @@ export const Container = styled.header`
 
   background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-  @media (min-width: 1368px) {
+  @media (min-width: ${RESIZE_WINDOW.XL}) {
     padding: 0 12.3rem;
   }
 `

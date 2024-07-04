@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { RESIZE_WINDOW } from '../../styles/resizeWindow'
 
 export const CarouselSectionContainer = styled.section`
   gap: 2.4rem;
@@ -9,7 +10,7 @@ export const CarouselSectionContainer = styled.section`
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: ${RESIZE_WINDOW.LG}) {
     > h3 {
       font-size: 3.2rem;
     }

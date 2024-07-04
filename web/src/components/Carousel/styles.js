@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+import { RESIZE_WINDOW } from '../../styles/resizeWindow'
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 600px;
+  max-width: 60rem;
 
   .wrapper {
     margin: 4rem auto;
@@ -21,5 +22,13 @@ export const Container = styled.div`
   .splide__arrow,
   .splide__pagination {
     display: none;
+  }
+
+  @media (min-width: ${RESIZE_WINDOW.LG}) {
+    max-width: 90rem;
+  }
+
+  @media (min-width: ${RESIZE_WINDOW.XL}) {
+    max-width: 112rem;
   }
 `

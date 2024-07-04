@@ -23,8 +23,8 @@ export function Home() {
             decoding="async"
             loading="lazy"
           />
-          <div className="bannerTitle">
-            <h2>Sabores inigualáveis</h2>
+          <div className="bannerTitle flex column">
+            <h1>Sabores inigualáveis</h1>
             <p>Sinta o cuidado do preparo com ingredientes selecionados.</p>
           </div>
         </div>

@@ -1,5 +1,5 @@
 export const RESIZE_WINDOW = {
-  XS: '320px',
+  XS: '428px',
   SM: '640px',
   MD: '768px',
   LG: '1024px',

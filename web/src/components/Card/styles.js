@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { RESIZE_WINDOW } from '../../styles/resizeWindow'
 
 export const Container = styled.div`
   width: 21rem;
@@ -82,7 +83,7 @@ export const Container = styled.div`
     }
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: ${RESIZE_WINDOW.MD}) {
     width: 30.4rem;
     height: 46.2rem;
 
