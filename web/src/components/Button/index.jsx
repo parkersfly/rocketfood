@@ -3,7 +3,7 @@ import { Container } from './styles'
 export function Button({ icon: Icon, text, ...rest }) {
   return (
     <Container
-      className="flex items-center justify-center poppins poppins100Medium"
+      className="flex items-center justify-center"
       type="button"
       {...rest}
     >

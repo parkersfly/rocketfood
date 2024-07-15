@@ -6,11 +6,13 @@ export function Footer() {
   return (
     <Container>
       <div>
-        <img src={footerPolygon} alt="" />
-        <p>food explorer</p>
-      </div>
+        <div>
+          <img src={footerPolygon} alt="" />
+          <p>food explorer</p>
+        </div>
 
-      <p>© 2023 - Todos os direitos reservados.</p>
+        <p>© 2023 - Todos os direitos reservados.</p>
+      </div>
     </Container>
   )
 }

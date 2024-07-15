@@ -5,9 +5,7 @@ export const Container = styled.div`
   width: 100%;
   max-width: 60rem;
 
-  .wrapper {
-    margin: 4rem auto;
-  }
+  position: relative;
 
   .splide__slide img {
     width: 100%;
@@ -27,6 +25,36 @@ export const Container = styled.div`
 
   @media (min-width: ${RESIZE_WINDOW.LG}) {
     max-width: 90rem;
+
+    &::before {
+      content: '';
+      z-index: 2;
+      width: 27.7rem;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 10, 15, 1) 27%,
+        rgba(0, 10, 15, 0.27494747899159666) 100%
+      );
+    }
+
+    &::after {
+      content: '';
+      z-index: 2;
+      width: 22.3rem;
+      height: 100%;
+      position: absolute;
+      display: block;
+      right: 0;
+      top: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(0, 10, 15, 0.27494747899159666) 27%,
+        rgba(0, 10, 15, 1) 100%
+      );
+    }
   }
 
   @media (min-width: ${RESIZE_WINDOW.XL}) {
@@ -34,6 +62,7 @@ export const Container = styled.div`
 
     .splide__arrow {
       display: block;
+      z-index: 3;
     }
 
     .splide__arrow svg {

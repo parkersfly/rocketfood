@@ -15,7 +15,16 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+
+  > div {
+    text-align: center;
+
+    a {
+      font-size: 1.4rem;
+      font-family: 'Poppins', sans-serif;
+      color: ${({ theme }) => theme.COLORS.LIGHT_300};
+    }
+  }
 
   img {
     width: 8.8rem !important;
@@ -28,7 +37,7 @@ export const Container = styled.div`
     gap: 1.2rem;
   }
 
-  .webDescription {
+  .cardDescription {
     display: none;
   }
 
@@ -92,26 +101,30 @@ export const Container = styled.div`
     }
 
     img {
-      width: 17.6rem;
-      height: 17.6rem;
+      width: 17.6rem !important;
+      height: 17.6rem !important;
     }
 
-    a {
-      font-size: 2.4rem;
-      font-weight: 700;
+    > div {
+      a {
+        font-size: 2.4rem;
+        font-weight: 700;
+      }
     }
 
     .price {
       font-size: 3.2rem;
+      line-height: 160%;
     }
 
-    .webDescription {
-      display: flex;
+    .cardDescription {
       text-align: center;
+      overflow: hidden !important;
       display: -webkit-box;
       -webkit-line-clamp: 2;
-      overflow: hidden;
       -webkit-box-orient: vertical;
+      color: ${({ theme }) => theme.COLORS.LIGHT_400};
+      font-size: 1.4rem;
     }
 
     .dishesAmount {

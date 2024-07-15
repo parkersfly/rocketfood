@@ -13,12 +13,16 @@ export function Carousel({ children }) {
         options={{
           autoWidth: true,
           focus: 'center',
-          gap: '1rem',
+          // type: 'loop',
+          gap: '16px',
+          trimSpace: 'move',
+          // omitEnd: true,
           mediaQuery: 'min',
           breakpoints: {
             1280: {
               focus: 0,
               type: 'loop',
+              gap: '27px',
             },
           },
         }}

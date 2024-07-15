@@ -10,7 +10,7 @@ export const CarouselSectionContainer = styled.section`
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
   }
 
-  @media (min-width: ${RESIZE_WINDOW.LG}) {
+  @media (min-width: ${RESIZE_WINDOW.MD}) {
     > h3 {
       font-size: 3.2rem;
     }

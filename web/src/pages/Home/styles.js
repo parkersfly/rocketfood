@@ -88,7 +88,6 @@ export const Banner = styled.div`
     p {
       font-size: 1.2rem;
       max-width: 27rem;
-      font-family: 'Poppins', sans-serif;
       margin-top: 0.3rem;
     }
   }
@@ -179,16 +178,23 @@ export const Banner = styled.div`
     > div {
       padding-right: 1rem;
 
-      h1 {
-        font-size: 4rem;
-        font-weight: 500;
-        margin: 0;
-      }
+      .bannerTitle {
+        h1 {
+          font-size: 4rem;
+          font-weight: 500;
+          margin: 0;
+        }
 
-      p {
-        font-family: Roboto;
-        font-size: 1.6rem;
+        p {
+          max-width: 100%;
+        }
       }
+    }
+  }
+
+  @media (min-width: ${RESIZE_WINDOW.XL}) {
+    .webImage {
+      margin-left: 1rem;
     }
   }
 `

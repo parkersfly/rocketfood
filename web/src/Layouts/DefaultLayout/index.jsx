@@ -12,8 +12,6 @@ import { Outlet } from 'react-router-dom'
 export function DefaultLayout() {
   const { user } = useAuth()
 
-  console.log(user)
-
   return (
     <DefaultLayoutContainer>
       {[USER_ROLE.ADMIN].includes(user.role) && <Header admin />}
