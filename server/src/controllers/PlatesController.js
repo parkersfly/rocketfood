@@ -7,7 +7,7 @@ class PlatesController {
     const pictureFile = request.file?.filename;
     const user_id = request.user.id;
 
-    const listTags = tags.split(",")
+    const tagsList = tags.split(",")
 
     let filename
 
@@ -29,7 +29,7 @@ class PlatesController {
     
 
     if(tags){
-      const tagsInsert = listTags.map(name => {
+      const tagsInsert = tagsList.map(name => {
         return {
           name,
           user_id,
@@ -48,6 +48,8 @@ class PlatesController {
     const pictureFile = request.file?.filename;
     const { id } = request.params;
     const user_id = request.user.id;
+
+    const tagsList = tags.split(',')
 
     const plate = await knex("plates").where({ id }).first();
 
@@ -81,7 +83,7 @@ class PlatesController {
       .where({ id });
 
       if(tags){
-        const tagsInsert = tags.map((name) => {
+        const tagsInsert = tagsList.map((name) => {
           return {
             name,
             user_id,

@@ -151,7 +151,7 @@ export function EditPlate() {
           </div>
 
           <div className="description">
-            <p className="roboto">Descrição</p>
+            <p>Descrição</p>
             <Textarea
               placeholder={data.description}
               onChange={(e) => setDescription(e.target.value)}

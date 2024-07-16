@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
 `
 
 export const Content = styled.div`
@@ -84,10 +83,6 @@ export const Form = styled.form`
 
     button:first-child {
       background: ${({ theme }) => theme.COLORS.DARK_800};
-    }
-
-    button {
-      padding: 1.2rem 2rem;
     }
   }
 

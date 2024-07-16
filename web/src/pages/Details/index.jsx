@@ -45,10 +45,12 @@ export function Details() {
     fetchPlate()
   }, [params.id])
 
+  const { title, description, price } = data
+
   return (
     <Container>
       <Content>
-        <button className="poppins" onClick={handleBack}>
+        <button onClick={handleBack}>
           <CaretLeft size={32} />
           voltar
         </button>
@@ -57,9 +59,9 @@ export function Details() {
             <img src={plateImage} alt="" />
 
             <div className="info">
-              <h3 className="poppins">{data.title}</h3>
+              <h3>{title}</h3>
 
-              <p className="poppins">{data.description}</p>
+              <p>{description}</p>
 
               {data.tags && (
                 <div className="tagsWrapper">
@@ -79,9 +81,7 @@ export function Details() {
                       <Minus size={24} />
                     </button>
 
-                    <p className="roboto robotoBigBold">
-                      {qntd > 9 ? qntd : `0${qntd}`}
-                    </p>
+                    <p>{qntd > 9 ? qntd : `0${qntd}`}</p>
 
                     <button onClick={handleAddItem}>
                       <Plus size={24} />
@@ -90,13 +90,13 @@ export function Details() {
 
                   <Button
                     className="buttonMobile"
-                    text={`pedir ∙ ${data.price}`}
+                    text={`pedir ∙ ${price}`}
                     icon={Receipt}
                   />
 
                   <Button
                     className="buttonWeb"
-                    text={`incluir ∙ R$ ${data.price}`}
+                    text={`incluir ∙ R$ ${price}`}
                   />
                 </div>
               )}
