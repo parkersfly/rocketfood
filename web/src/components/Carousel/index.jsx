@@ -19,7 +19,7 @@ export function Carousel({ children }) {
           // omitEnd: true,
           mediaQuery: 'min',
           breakpoints: {
-            1280: {
+            1024: {
               focus: 0,
               type: 'loop',
               gap: '27px',

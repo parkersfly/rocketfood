@@ -1,31 +1,47 @@
 import styled from 'styled-components'
 
+import { RESIZE_WINDOW } from '../../styles/resizeWindow'
+
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  padding: 0 5.6rem;
 `
 
 export const Content = styled.div`
-  grid-area: content;
-  padding: 2.4rem 5.6rem;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+
+  padding: 2rem 0;
+  margin: 1.6rem 0 3.3rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 1.6rem;
 
   .buttonWeb {
     display: none !important;
   }
 
-  > button {
-    background: none;
-    border: none;
-
-    font-size: 2.4rem;
-    font-weight: 500;
-
-    color: ${({ theme }) => theme.COLORS.LIGHT_300};
-
+  > div {
     display: flex;
     align-items: center;
 
-    margin-bottom: 1.6rem;
+    > button {
+      background: none;
+      border: none;
+
+      font-size: 2.4rem;
+      font-weight: 500;
+
+      color: ${({ theme }) => theme.COLORS.LIGHT_300};
+
+      display: flex;
+      align-items: center;
+
+      font-family: 'Poppins', sans-serif;
+    }
   }
 
   > main {
@@ -37,66 +53,17 @@ export const Content = styled.div`
     }
   }
 
-  .info {
-    margin-top: 1.6rem;
-    text-align: center;
-    color: ${({ theme }) => theme.COLORS.LIGHT_300};
+  @media (min-width: ${RESIZE_WINDOW.LG}) {
+    max-width: 112rem;
+    margin: 2.4rem auto 0;
+    padding: 0;
+    gap: 4.2rem;
 
-    h3 {
-      font-size: 2.7rem;
-      font-weight: 500;
-      margin-bottom: 2.4rem;
-    }
-
-    .tagsWrapper {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2.4rem;
-
-      margin-top: 2.4rem;
-
-      > li {
-        list-style: none;
-      }
-    }
-
-    .qntdAndPrice {
-      display: flex;
-      align-items: center;
-      gap: 1.6rem;
-
-      margin-top: 4.8rem;
-
-      .count {
-        gap: 1.6rem;
-        button {
-          background: none;
-          border: none;
-        }
-      }
-
+    > div {
       button {
-        height: 3.8rem;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        font-size: 0.9rem;
-        font-weight: 500;
-
-        svg {
-          width: 2.2rem;
-          height: 2.2rem;
-          margin-right: 0.5rem;
-        }
+        font-weight: 700;
       }
     }
-  }
-
-  @media (min-width: 1368px) {
-    padding: 2.4rem 12.3rem;
 
     .buttonMobile {
       display: none !important;
@@ -117,30 +84,73 @@ export const Content = styled.div`
       }
     }
 
-    .info {
-      text-align: start;
+    .tagsWrapper {
+      justify-content: start !important;
+      gap: 1.2rem !important;
+    }
+  }
+`
 
+export const DisheDetails = styled.div`
+  width: 100%;
+  margin-top: 1.6rem;
+  text-align: center;
+  color: ${({ theme }) => theme.COLORS.LIGHT_300};
+
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+
+  > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    h3 {
+      font-size: 2.7rem;
+      font-weight: 500;
+    }
+
+    .tagsWrapper {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2.4rem;
+
+      > li {
+        list-style: none;
+      }
+    }
+
+    button {
+      height: 3.8rem;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 0.9rem;
+      font-weight: 500;
+
+      svg {
+        width: 2.2rem;
+        height: 2.2rem;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  @media (min-width: ${RESIZE_WINDOW.LG}) {
+    text-align: start;
+
+    > div:first-child {
       h3 {
         font-size: 4rem;
       }
 
       p {
         font-size: 2.4rem;
-      }
-    }
-
-    .tagsWrapper {
-      justify-content: start !important;
-      gap: 1.2rem !important;
-    }
-
-    .qntdAndPrice {
-      justify-content: start;
-
-      > button {
-        width: max-content;
-        padding: 1.2rem 2.4rem;
-        font-size: 1.4rem !important;
+        font-weight: 300;
       }
     }
   }

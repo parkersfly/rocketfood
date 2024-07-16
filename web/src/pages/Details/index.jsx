@@ -1,16 +1,17 @@
-import { Container, Content } from './styles'
+import { Container, Content, DisheDetails } from './styles'
 
 import { Tag } from '../../components/Tag'
 import { Button } from '../../components/Button'
+import { QntdAndPrice } from './qntd-and-price'
 
 import { USER_ROLE } from '../../utils/role'
 import { useAuth } from '../../hooks/auth'
-import { Link, useNavigate, useParams } from 'react-router-dom'
 
-import { CaretLeft, Receipt, Minus, Plus } from '@phosphor-icons/react'
+import { CaretLeft } from '@phosphor-icons/react'
 import { api } from '../../services/api'
 
 import { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 export function Details() {
   const { user } = useAuth()
@@ -45,70 +46,53 @@ export function Details() {
     fetchPlate()
   }, [params.id])
 
-  const { title, description, price } = data
+  const { title, description, price, tags } = data
 
   return (
     <Container>
       <Content>
-        <button onClick={handleBack}>
-          <CaretLeft size={32} />
-          voltar
-        </button>
-        {data && (
-          <main className="flex column justify-center items-center">
-            <img src={plateImage} alt="" />
+        <div>
+          <button onClick={handleBack}>
+            <CaretLeft size={32} />
+            voltar
+          </button>
+        </div>
 
-            <div className="info">
+        <main className="flex column justify-center items-center">
+          <img src={plateImage} alt="" />
+          <DisheDetails>
+            <div>
               <h3>{title}</h3>
 
               <p>{description}</p>
 
-              {data.tags && (
+              {tags && (
                 <div className="tagsWrapper">
-                  {data.tags &&
-                    data.tags.map((tag) => (
+                  {tags &&
+                    tags.map((tag) => (
                       <li key={String(tag.id)}>
                         <Tag text={tag.name} />
                       </li>
                     ))}
                 </div>
               )}
-
-              {[USER_ROLE.CUSTOMER].includes(user.role) && (
-                <div className="qntdAndPrice flex justify-center">
-                  <div className="count flex items-center">
-                    <button onClick={handleRemoveItem}>
-                      <Minus size={24} />
-                    </button>
-
-                    <p>{qntd > 9 ? qntd : `0${qntd}`}</p>
-
-                    <button onClick={handleAddItem}>
-                      <Plus size={24} />
-                    </button>
-                  </div>
-
-                  <Button
-                    className="buttonMobile"
-                    text={`pedir ∙ ${price}`}
-                    icon={Receipt}
-                  />
-
-                  <Button
-                    className="buttonWeb"
-                    text={`incluir ∙ R$ ${price}`}
-                  />
-                </div>
-              )}
-
-              {[USER_ROLE.ADMIN].includes(user.role) && (
-                <Link to="/edit">
-                  <Button text="Editar prato" />
-                </Link>
-              )}
             </div>
-          </main>
-        )}
+
+            {[USER_ROLE.CUSTOMER].includes(user.role) && (
+              <QntdAndPrice
+                price={price}
+                handleAddItem={handleAddItem}
+                handleRemoveItem={handleRemoveItem}
+                qntd={qntd}
+              />
+            )}
+            {[USER_ROLE.ADMIN].includes(user.role) && (
+              <Link to="/edit">
+                <Button text="Editar prato" />
+              </Link>
+            )}
+          </DisheDetails>
+        </main>
       </Content>
     </Container>
   )

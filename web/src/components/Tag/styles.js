@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const Container = styled.span`
+  font-family: 'Poppins', sans-serif;
+
   width: 11.8rem;
   max-width: max-content;
   height: 3.2rem;

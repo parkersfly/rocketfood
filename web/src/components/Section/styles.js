@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { RESIZE_WINDOW } from '../../styles/resizeWindow'
 
 export const CarouselSectionContainer = styled.section`
+  max-width: 100%;
   gap: 2.4rem;
 
   > h3 {

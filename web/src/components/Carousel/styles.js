@@ -5,6 +5,8 @@ export const Container = styled.div`
   width: 100%;
   max-width: 60rem;
 
+  overflow: hidden;
+
   position: relative;
 
   .splide__slide img {

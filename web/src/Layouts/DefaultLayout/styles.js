@@ -17,5 +17,9 @@ export const DefaultLayoutContent = styled.div`
   width: 100%;
   grid-area: content;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   overflow: auto;
 `
