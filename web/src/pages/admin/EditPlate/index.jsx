@@ -11,6 +11,7 @@ import { api } from '../../../services/api'
 import { CaretLeft, UploadSimple } from '@phosphor-icons/react'
 import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { Check } from 'lucide-react'
 
 export function EditPlate() {
   const [data, setData] = useState('')
@@ -104,7 +105,7 @@ export function EditPlate() {
             <Input
               type="file"
               title="Imagem do prato"
-              icon={UploadSimple}
+              icon={picture ? Check : UploadSimple}
               labelTitle="Selecione a imagem para alterá-la"
               htmlFor="plateImage"
               id="plateImage"

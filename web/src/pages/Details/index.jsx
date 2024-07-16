@@ -89,13 +89,13 @@ export function Details() {
                   </div>
 
                   <Button
-                    className="poppins buttonMobile"
+                    className="buttonMobile"
                     text={`pedir ∙ ${data.price}`}
                     icon={Receipt}
                   />
 
                   <Button
-                    className="poppins buttonWeb"
+                    className="buttonWeb"
                     text={`incluir ∙ R$ ${data.price}`}
                   />
                 </div>
@@ -103,10 +103,7 @@ export function Details() {
 
               {[USER_ROLE.ADMIN].includes(user.role) && (
                 <Link to="/edit">
-                  <Button
-                    className="poppins poppins100Medium"
-                    text="Editar prato"
-                  />
+                  <Button text="Editar prato" />
                 </Link>
               )}
             </div>

@@ -42,9 +42,5 @@ export const Container = styled.div`
     input[type='file'] {
       display: none;
     }
-
-    label {
-      height: 100%;
-    }
   }
 `

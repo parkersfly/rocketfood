@@ -12,6 +12,7 @@ import { CaretLeft, UploadSimple } from '@phosphor-icons/react'
 
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import { Check } from 'lucide-react'
 
 export function NewPlate() {
   const [title, setTitle] = useState()
@@ -91,7 +92,7 @@ export function NewPlate() {
             <Input
               type="file"
               title="Imagem do prato"
-              icon={UploadSimple}
+              icon={picture ? Check : UploadSimple}
               labelTitle="Selecione a imagem"
               htmlFor="plateImage"
               id="plateImage"
