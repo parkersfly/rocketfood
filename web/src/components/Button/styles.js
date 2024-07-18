@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
+import { RESIZE_WINDOW } from '../../styles/resizeWindow'
+
 export const Container = styled.button`
   width: 100%;
-  max-width: 40rem;
+  max-width: max-content;
   height: 5.6rem;
 
   display: flex;
@@ -18,4 +20,9 @@ export const Container = styled.button`
   font-size: 1.4rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
+
+  @media (min-width: ${RESIZE_WINDOW.LG}) {
+    padding: 1.2rem 2.4rem;
+    height: 4.8rem !important;
+  }
 `

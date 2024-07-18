@@ -1,9 +1,16 @@
 import { Check } from 'lucide-react'
 import { Container } from './styles'
 
-export function Input({ icon: Icon, htmlFor, labelTitle, title, ...rest }) {
+export function Input({
+  icon: Icon,
+  htmlFor,
+  labelTitle,
+  title,
+  nameClass,
+  ...rest
+}) {
   return (
-    <Container>
+    <Container className={nameClass}>
       <p>{title}</p>
       <div>
         {Icon && Icon === Check ? (

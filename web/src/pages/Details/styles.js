@@ -55,7 +55,7 @@ export const Content = styled.div`
 
   @media (min-width: ${RESIZE_WINDOW.LG}) {
     max-width: 112rem;
-    margin: 2.4rem auto 0;
+    margin: 2.4rem auto 4.8rem;
     padding: 0;
     gap: 4.2rem;
 

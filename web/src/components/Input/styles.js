@@ -13,6 +13,7 @@ export const Container = styled.div`
     height: 4.8rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 1.2rem 1.4rem;
 
     margin-top: 0.8rem;

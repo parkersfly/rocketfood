@@ -9,7 +9,7 @@ import {
   Utensils,
 } from 'lucide-react'
 
-export function SelectInput({ onClick, value }) {
+export function SelectInput({ onClick, value, nameClass }) {
   const selectedValue = document.getElementById('selected-value')
   const optionsViewButton = document.getElementById('options-view-button')
   const inputsOptions = document.querySelectorAll('.option input')
@@ -26,7 +26,7 @@ export function SelectInput({ onClick, value }) {
   })
 
   return (
-    <Container className="select">
+    <Container className={`select ${nameClass}`}>
       <div id="category-select">
         <label htmlFor="options-view-button">Categoria</label>
         <input type="checkbox" id="options-view-button" />

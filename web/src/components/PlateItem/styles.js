@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 11.8rem;
-  max-width: max-content;
+  width: max-content;
 
   height: 3.2rem;
 
@@ -16,11 +15,16 @@ export const Container = styled.div`
 
   display: flex;
   align-items: center;
+  gap: 0.8rem;
 
   color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
+  > span {
+    line-height: 0;
+  }
+
   > input {
-    width: 100%;
+    width: 8rem;
     background: none;
     border: none;
     outline: none;
@@ -36,6 +40,8 @@ export const Container = styled.div`
   }
 
   > svg {
-    margin-left: 0.8rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    line-height: 0;
   }
 `

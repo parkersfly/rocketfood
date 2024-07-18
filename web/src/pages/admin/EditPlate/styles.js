@@ -5,7 +5,9 @@ export const Container = styled.div`
 `
 
 export const Content = styled.div`
-  padding: 1rem 3.2rem 5.3rem;
+  width: 100%;
+  max-width: 112rem;
+  padding: 0 3.2rem;
   gap: 2.4rem;
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
 
@@ -23,8 +25,8 @@ export const Content = styled.div`
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
   }
 
-  @media (min-width: 1368px) {
-    padding: 4rem 12.4rem;
+  @media (min-width: 1024px) {
+    margin: 4rem auto;
 
     > button {
       font-size: 2.4rem;
@@ -43,6 +45,10 @@ export const Form = styled.form`
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
   }
 
+  .form-input {
+    width: auto;
+  }
+
   .divider1,
   .divider2 {
     gap: 2.4rem;
@@ -57,7 +63,7 @@ export const Form = styled.form`
 
   .ingredients {
     width: 100%;
-    max-height: 10rem;
+    height: 4.8rem;
     overflow-y: auto;
     padding: 0.8rem;
 
@@ -77,7 +83,7 @@ export const Form = styled.form`
     }
   }
 
-  .buttonWrapper {
+  .button-wrapper {
     display: flex;
     gap: 3.2rem;
 
@@ -86,12 +92,29 @@ export const Form = styled.form`
     }
   }
 
-  @media (min-width: 1368px) {
+  @media (min-width: 1024px) {
     flex-direction: column;
     flex-wrap: wrap;
 
+    .dish-image {
+      flex: 0.5;
+    }
+
+    .name {
+      flex: 1;
+    }
+
+    .category {
+      flex: 0.8;
+    }
+
     .ingredientsList {
       width: 100%;
+      flex: 1;
+    }
+
+    .price {
+      flex: 0.3;
     }
 
     .divider1,
@@ -100,12 +123,8 @@ export const Form = styled.form`
       flex-direction: row;
     }
 
-    .buttonWrapper {
+    .button-wrapper {
       justify-content: end;
-
-      button {
-        width: max-content;
-      }
     }
   }
 `

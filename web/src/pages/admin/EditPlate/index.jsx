@@ -90,15 +90,17 @@ export function EditPlate() {
     fetchPlate()
   }, [])
 
+  console.log(data.description)
+
   return (
     <Container>
       <Content className="flex column">
-        <button onClick={handleBack} className="poppins">
+        <button onClick={handleBack}>
           <CaretLeft size={22} />
           voltar
         </button>
 
-        <h1 className="poppins poppins400Medium">Editar prato</h1>
+        <h1>Editar prato</h1>
 
         <Form>
           <div className="divider1 flex column">
@@ -106,8 +108,9 @@ export function EditPlate() {
               type="file"
               title="Imagem do prato"
               icon={picture ? Check : UploadSimple}
-              labelTitle="Selecione a imagem para alterá-la"
+              labelTitle="Selecione a imagem"
               htmlFor="plateImage"
+              nameClass="dish-image"
               id="plateImage"
               onChange={handleInsertPlateImage}
             />
@@ -115,16 +118,20 @@ export function EditPlate() {
             <Input
               type="text"
               title="Nome"
+              nameClass="name"
               placeholder={data.title}
               onChange={(e) => setTitle(e.target.value)}
             />
 
-            <SelectInput onClick={(e) => setCategory(e.target.value)} />
+            <SelectInput
+              nameClass="category"
+              onClick={(e) => setCategory(e.target.value)}
+            />
           </div>
 
           <div className="divider2 flex column">
             <div className="ingredientsList">
-              <p className="roboto robotoSmallRegular">Ingredientes</p>
+              <p>Ingredientes</p>
               <div className="ingredients">
                 {tags.map((tag, index) => (
                   <PlateItem
@@ -145,6 +152,7 @@ export function EditPlate() {
 
             <Input
               title="Preço"
+              nameClass="price"
               placeholder={`R$ ${data.price}`}
               onChange={(e) => setPrice(e.target.value)}
             />
@@ -158,7 +166,7 @@ export function EditPlate() {
             />
           </div>
 
-          <div className="buttonWrapper">
+          <div className="button-wrapper">
             <Button text="Excluir prato" onClick={handleDeletePlate} />
 
             <Button onClick={handleUpdatePlate} text="Salvar alterações" />

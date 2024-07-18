@@ -3,13 +3,14 @@ import { Container } from './styles'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
-import { Button } from '../../components/Button'
-import { USER_ROLE } from '../../utils/role'
-import { useAuth } from '../../hooks/auth'
+import { Button } from '../../../components/Button'
+import { USER_ROLE } from '../../../utils/role'
+import { useAuth } from '../../../hooks/auth'
 
 import { Heart, Minus, Plus } from '@phosphor-icons/react'
-import { api } from '../../services/api'
 import { PencilIcon } from 'lucide-react'
+
+import { api } from '../../../services/api'
 
 export function Card({ data, ...rest }) {
   const { user } = useAuth()

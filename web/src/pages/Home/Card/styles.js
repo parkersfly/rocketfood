@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { RESIZE_WINDOW } from '../../styles/resizeWindow'
+import { RESIZE_WINDOW } from '../../../styles/resizeWindow'
 
 export const Container = styled.div`
   width: 21rem;

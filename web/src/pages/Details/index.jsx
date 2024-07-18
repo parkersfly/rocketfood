@@ -48,6 +48,8 @@ export function Details() {
 
   const { title, description, price, tags } = data
 
+  const editDish = `/edit/${params.id}`
+
   return (
     <Container>
       <Content>
@@ -87,7 +89,7 @@ export function Details() {
               />
             )}
             {[USER_ROLE.ADMIN].includes(user.role) && (
-              <Link to="/edit">
+              <Link to={editDish}>
                 <Button text="Editar prato" />
               </Link>
             )}

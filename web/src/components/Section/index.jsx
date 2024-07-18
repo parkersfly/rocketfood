@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { api } from '../../services/api'
 
 import { Carousel } from '../Carousel'
-import { Card } from '../Card'
+import { Card } from '../../pages/Home/Card'
 
 export function CarouselSection({ title, category }) {
   const [plates, setPlates] = useState([])
