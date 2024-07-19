@@ -54,6 +54,10 @@ export const Container = styled.div`
 
   #category-select {
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
   }
 
   #options-view-button {

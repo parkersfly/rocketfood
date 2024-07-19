@@ -50,6 +50,7 @@ export function SignUp() {
             id="name"
             title="Seu nome"
             onChange={(e) => setName(e.target.value)}
+            primary
           />
           <Input
             type="text"
@@ -59,6 +60,7 @@ export function SignUp() {
             id="email"
             title="Email"
             onChange={(e) => setEmail(e.target.value)}
+            primary
           />
           <Input
             type="password"
@@ -68,6 +70,7 @@ export function SignUp() {
             id="password"
             title="Senha"
             onChange={(e) => setPassword(e.target.value)}
+            primary
           />
 
           <Button text="Criar conta" onClick={handleSignUp} />

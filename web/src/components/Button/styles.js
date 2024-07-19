@@ -4,7 +4,6 @@ import { RESIZE_WINDOW } from '../../styles/resizeWindow'
 
 export const Container = styled.button`
   width: 100%;
-  max-width: max-content;
   height: 5.6rem;
 
   display: flex;

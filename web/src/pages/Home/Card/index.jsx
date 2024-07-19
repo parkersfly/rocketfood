@@ -76,7 +76,7 @@ export function Card({ data, ...rest }) {
       </div>
       {[USER_ROLE.CUSTOMER].includes(user.role) && (
         <div className="flex column items-center dishesAmount">
-          <div className="addAndRemoveTheDishesAmount flex items-center">
+          <div className="addOrRemoveTheDishesAmount flex items-center">
             <button onClick={handleRemoveItem}>
               <Minus size={24} />
             </button>

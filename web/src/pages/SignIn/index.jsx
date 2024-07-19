@@ -32,6 +32,7 @@ export function SignIn() {
             htmlFor="email"
             id="email"
             title="Email"
+            primary
             onChange={(e) => setEmail(e.target.value)}
           />
           <Input
@@ -41,6 +42,7 @@ export function SignIn() {
             htmlFor="password"
             id="password"
             title="Senha"
+            primary
             onChange={(e) => setPassword(e.target.value)}
           />
 

@@ -11,22 +11,23 @@ export const Content = styled.div`
   gap: 2.4rem;
   color: ${({ theme }) => theme.COLORS.LIGHT_300};
 
+  margin: 1.1rem 0 5.3rem;
+
   > button {
-    width: max-content;
     display: flex;
     align-items: center;
-
-    background: none;
-    border: none;
-
-    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
 
     font-weight: 500;
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
   }
 
+  h1 {
+    font-weight: 500;
+  }
+
   @media (min-width: 1024px) {
-    margin: 4rem auto;
+    margin: 11.6rem auto;
 
     > button {
       font-size: 2.4rem;
@@ -54,10 +55,14 @@ export const Form = styled.form`
     gap: 2.4rem;
   }
 
-  .ingredientsList {
+  .ingredientsList,
+  .description {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
     p {
       color: ${({ theme }) => theme.COLORS.LIGHT_400};
-      margin-bottom: 0.8rem;
     }
   }
 
@@ -74,13 +79,6 @@ export const Form = styled.form`
     border-radius: 0.8rem;
     background: ${({ theme }) => theme.COLORS.DARK_800};
     flex-wrap: wrap;
-  }
-
-  .description {
-    p {
-      color: ${({ theme }) => theme.COLORS.LIGHT_400};
-      margin-bottom: 0.8rem;
-    }
   }
 
   .button-wrapper {

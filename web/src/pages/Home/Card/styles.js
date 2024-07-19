@@ -73,7 +73,7 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.CAKE_200};
   }
 
-  .addAndRemoveTheDishesAmount {
+  .addOrRemoveTheDishesAmount {
     justify-content: space-between;
     gap: 1.4rem;
 
@@ -92,12 +92,24 @@ export const Container = styled.div`
     }
   }
 
+  .dishesAmount {
+    max-width: 20.8rem;
+    margin: 0 auto;
+  }
+
   @media (min-width: ${RESIZE_WINDOW.MD}) {
     width: 30.4rem;
     height: 46.2rem;
 
     .web {
       gap: 1.5rem;
+    }
+
+    .addOrRemoveTheDishesAmount {
+      p {
+        font-size: 2rem;
+        font-weight: 700;
+      }
     }
 
     img {

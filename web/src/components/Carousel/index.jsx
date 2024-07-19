@@ -15,12 +15,12 @@ export function Carousel({ children }) {
           focus: 'center',
           // type: 'loop',
           gap: '16px',
-          trimSpace: 'move',
           // omitEnd: true,
           mediaQuery: 'min',
           breakpoints: {
             1024: {
               focus: 0,
+              padding: { left: 10, right: 20 },
               type: 'loop',
               gap: '27px',
             },

@@ -153,5 +153,9 @@ export const DisheDetails = styled.div`
         font-weight: 300;
       }
     }
+
+    button {
+      width: max-content;
+    }
   }
 `

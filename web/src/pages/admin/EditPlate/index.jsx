@@ -125,6 +125,7 @@ export function EditPlate() {
 
             <SelectInput
               nameClass="category"
+              categorySelected={data.category}
               onClick={(e) => setCategory(e.target.value)}
             />
           </div>

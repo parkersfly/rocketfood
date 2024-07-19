@@ -7,19 +7,22 @@ export function Input({
   labelTitle,
   title,
   nameClass,
+  primary,
   ...rest
 }) {
   return (
-    <Container className={nameClass}>
+    <Container className={nameClass} primary={primary}>
       <p>{title}</p>
       <div>
-        {Icon && Icon === Check ? (
-          <Icon size={24} color="#10b981" />
-        ) : (
-          Icon && <Icon size={24} />
-        )}
         <input {...rest} />
-        <label htmlFor={htmlFor}>{labelTitle}</label>
+        <label htmlFor={htmlFor}>
+          {Icon && Icon === Check ? (
+            <Icon size={24} color="#10b981" />
+          ) : (
+            Icon && <Icon size={24} />
+          )}
+          {labelTitle}
+        </label>
       </div>
     </Container>
   )

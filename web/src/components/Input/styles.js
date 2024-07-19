@@ -2,7 +2,10 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  /* max-width: 40rem; */
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 
   > p {
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
@@ -16,15 +19,21 @@ export const Container = styled.div`
     justify-content: center;
     padding: 1.2rem 1.4rem;
 
-    margin-top: 0.8rem;
-
     border-radius: 0.8rem;
 
-    background: ${({ theme }) => theme.COLORS.DARK_900};
+    background: ${({ primary, theme }) =>
+      primary ? theme.COLORS.DARK_900 : theme.COLORS.DARK_800};
 
     svg {
       color: ${({ theme }) => theme.COLORS.LIGHT_400};
       margin-right: 1.4rem;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
     }
 
     input {

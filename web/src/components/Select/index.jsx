@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Container } from './styles'
 
 import {
@@ -9,21 +10,33 @@ import {
   Utensils,
 } from 'lucide-react'
 
-export function SelectInput({ onClick, value, nameClass }) {
-  const selectedValue = document.getElementById('selected-value')
+export function SelectInput({ onClick, categorySelected, nameClass }) {
+  const [selectedValue, setSelectedValue] = useState(
+    categorySelected || 'Selecione a categoria',
+  )
+
+  // const selectedValue = document.getElementById('selected-value')
   const optionsViewButton = document.getElementById('options-view-button')
   const inputsOptions = document.querySelectorAll('.option input')
 
-  inputsOptions.forEach((input) => {
-    input.addEventListener('click', (event) => {
-      selectedValue.textContent = input.dataset.label
+  function displayCategorySelected(inputValue) {
+    console.log(inputValue)
 
-      const isMouseOrTouch =
-        event.pointerType === 'mouse' || event.pointerType === 'touch'
+    setSelectedValue(inputValue)
 
-      isMouseOrTouch && optionsViewButton.click()
-    })
-  })
+    // inputsOptions.forEach((input) => {
+    //   input.addEventListener('click', (event) => {
+    //     selectedValue.textContent = input.dataset.label
+
+    //     console.log(categorySelected)
+
+    //     const isMouseOrTouch =
+    //       event.pointerType === 'mouse' || event.pointerType === 'touch'
+
+    //     isMouseOrTouch && optionsViewButton.click()
+    //   })
+    // })
+  }
 
   return (
     <Container className={`select ${nameClass}`}>
@@ -32,7 +45,12 @@ export function SelectInput({ onClick, value, nameClass }) {
         <input type="checkbox" id="options-view-button" />
 
         <div id="select-button">
-          <div id="selected-value">Selecione a categoria</div>
+          {/* <div id="selected-value">Selecione a categoria</div> */}
+          {categorySelected ? (
+            <div id="selected-value">{selectedValue}</div>
+          ) : (
+            <div id="selected-value">Selecione a categoria</div>
+          )}
 
           <div id="chevrons">
             <ChevronDown className="chevron-down" />
@@ -48,7 +66,7 @@ export function SelectInput({ onClick, value, nameClass }) {
             name="category"
             value="refeicao"
             data-label="Refeicao"
-            onClick={onClick}
+            onClick={(e) => displayCategorySelected(e.target.value)}
           />
 
           <Utensils />
