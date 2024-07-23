@@ -14,12 +14,20 @@ export const Content = styled.div`
   margin: 1.1rem 0 5.3rem;
 
   > button {
+    width: max-content;
     display: flex;
     align-items: center;
     font-family: 'Poppins', sans-serif;
+    position: relative;
 
     font-weight: 500;
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
+    padding-bottom: 0.5rem;
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid ${({ theme }) => theme.COLORS.LIGHT_300};
+    }
   }
 
   h1 {
@@ -27,7 +35,7 @@ export const Content = styled.div`
   }
 
   @media (min-width: 1024px) {
-    margin: 11.6rem auto;
+    margin: 4rem auto;
 
     > button {
       font-size: 2.4rem;

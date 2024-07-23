@@ -34,11 +34,6 @@ export const Container = styled.aside`
 
     background-color: ${({ theme }) => theme.COLORS.DARK_700};
 
-    button {
-      background: none;
-      border: none;
-    }
-
     p {
       font-size: 2.1rem;
     }
@@ -49,13 +44,13 @@ export const Container = styled.aside`
   }
 
   > main {
-    padding: 0 2.8rem;
+    padding: 3.6rem 2.8rem;
 
     div:first-child {
       position: relative;
 
-      > div {
-        margin-top: 3.6rem;
+      > ul:has(input:focus) {
+        background: red;
       }
 
       > ul {
@@ -65,10 +60,15 @@ export const Container = styled.aside`
         list-style: none;
         position: absolute;
         z-index: 2;
+        box-shadow: 0 0 0 2px ${({ theme }) => theme.COLORS.WHITE};
 
         li {
           background-color: ${({ theme }) => theme.COLORS.DARK_800};
           border-radius: 0 0 0.5rem 0.5rem;
+
+          > button {
+            width: 100%;
+          }
 
           a {
             padding: 1rem;

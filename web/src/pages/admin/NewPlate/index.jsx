@@ -80,14 +80,15 @@ export function NewPlate() {
 
   return (
     <Container>
-      <Content>
+      <Content className="flex column">
         <button onClick={handleBack} className="poppins">
           <CaretLeft size={22} />
           voltar
         </button>
-        <Form>
-          <h1 className="poppins poppins400Medium">Novo prato</h1>
 
+        <h1>Novo prato</h1>
+
+        <Form>
           <div className="divider1 flex column">
             <Input
               type="file"
@@ -95,6 +96,7 @@ export function NewPlate() {
               icon={picture ? Check : UploadSimple}
               labelTitle="Selecione a imagem"
               htmlFor="plateImage"
+              nameClass="dish-image"
               id="plateImage"
               onChange={handleInsertPlateImage}
             />
@@ -102,16 +104,20 @@ export function NewPlate() {
             <Input
               type="text"
               title="Nome"
+              nameClass="name"
               placeholder="Ex.: Salada Ceasar"
               onChange={(e) => setTitle(e.target.value)}
             />
 
-            <SelectInput onClick={(e) => setCategory(e.target.value)} />
+            <SelectInput
+              nameClass="category"
+              onClick={(e) => setCategory(e.target.value)}
+            />
           </div>
 
           <div className="divider2 flex column">
             <div className="ingredientsList">
-              <p className="roboto robotoSmallRegular">Ingredientes</p>
+              <p>Ingredientes</p>
               <div className="ingredients">
                 {tags.map((tag, index) => (
                   <PlateItem
@@ -130,21 +136,16 @@ export function NewPlate() {
               </div>
             </div>
 
-            <div className="price">
-              <label htmlFor="preco">Preço</label>
-              <div className="priceInput flex items-center">
-                <span>R$</span>
-                <input
-                  type="text"
-                  placeholder="00,00"
-                  onChange={(e) => setPrice(e.target.value)}
-                />
-              </div>
-            </div>
+            <Input
+              title="Preço"
+              nameClass="price"
+              placeholder="R$ 00,00"
+              onChange={(e) => setPrice(e.target.value)}
+            />
           </div>
 
           <div className="description">
-            <p className="roboto">Descrição</p>
+            <p>Descrição</p>
             <Textarea
               placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
               value=""

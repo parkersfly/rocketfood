@@ -22,7 +22,7 @@ export function Card({ data, ...rest }) {
   )
 
   function handleAddItem() {
-    setOrders(orders + 1)
+    setOrders((prevState) => prevState + 1)
   }
 
   function handleRemoveItem() {

@@ -1,30 +1,45 @@
 import styled from 'styled-components'
 
+import { RESIZE_WINDOW } from '../../../styles/resizeWindow'
+
 export const Container = styled.div``
 
 export const Content = styled.div`
-  padding: 1rem 3.2rem 5.3rem;
+  width: 100%;
+  padding: 0 3.2rem;
+  max-width: 60rem;
+  gap: 2.4rem;
+  margin: 4rem auto;
+
+  color: ${({ theme }) => theme.COLORS.LIGHT_300};
 
   > button {
+    width: max-content;
     display: flex;
     align-items: center;
-
-    font-size: 1.6rem;
-
-    background: none;
-    border: none;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
 
     font-weight: 500;
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
+    padding-bottom: 0.5rem;
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid ${({ theme }) => theme.COLORS.LIGHT_300};
+    }
   }
 
-  @media (min-width: 1368px) {
-    padding: 4rem 12.4rem;
+  h1 {
+    font-weight: 500;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 112rem;
 
     > button {
       font-size: 2.4rem;
       font-weight: 700;
-      margin-bottom: 2.4rem;
     }
   }
 `
@@ -39,39 +54,21 @@ export const Form = styled.form`
     gap: 2.4rem;
   }
 
-  .price {
-    .priceInput {
-      height: 4.8rem;
-      background: ${({ theme }) => theme.COLORS.DARK_900};
-      padding: 1.2rem 1.4rem;
-      border-radius: 0.5rem;
-      gap: 0.5rem;
-
-      input {
-        background: none;
-        border: none;
-        outline: none;
-
-        &::placeholder {
-          font-size: 1.4rem;
-        }
-      }
-    }
-  }
-
   > h1 {
     font-weight: 500;
     color: ${({ theme }) => theme.COLORS.LIGHT_300};
   }
 
-  .ingredientsList {
-    color: ${({ theme }) => theme.COLORS.LIGHT_400};
+  .ingredientsList,
+  .description {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
 
     p {
-      margin-bottom: 0.8rem;
+      color: ${({ theme }) => theme.COLORS.LIGHT_400};
     }
   }
-
   .ingredients {
     width: 100%;
     max-height: 10rem;
@@ -87,19 +84,29 @@ export const Form = styled.form`
     flex-wrap: wrap;
   }
 
-  .description {
-    p {
-      color: ${({ theme }) => theme.COLORS.LIGHT_400};
-      margin-bottom: 0.8rem;
-    }
-  }
-
-  @media (min-width: 1368px) {
+  @media (min-width: ${RESIZE_WINDOW.LG}) {
     flex-direction: column;
     flex-wrap: wrap;
 
+    .dish-image {
+      flex: 0.5;
+    }
+
+    .name {
+      flex: 1;
+    }
+
+    .category {
+      flex: 0.8;
+    }
+
     .ingredientsList {
       width: 100%;
+      flex: 1;
+    }
+
+    .price {
+      flex: 0.3;
     }
 
     .divider1,

@@ -25,6 +25,12 @@ export function Menu({ menuIsOpen, setMenuIsOpen }) {
     signOut()
   }
 
+  function clearSearch() {
+    setMenuIsOpen(false)
+
+    setSearch('')
+  }
+
   useEffect(() => {
     async function fetchPlates() {
       const response = await api.get(`/plates?titleOrTags=${search}`)
@@ -49,22 +55,25 @@ export function Menu({ menuIsOpen, setMenuIsOpen }) {
             icon={MagnifyingGlass}
             placeholder="Busque por pratos ou ingredientes"
             onChange={(e) => setSearch(e.target.value)}
+            value={search}
           />
 
           <ul>
             {search.length > 0 &&
               plates.map((plate, index) => (
                 <li key={index}>
-                  <Link
-                    to={`/details/${plate.id}`}
-                    className="flex items-center"
-                  >
-                    <img
-                      src={`${api.defaults.baseURL}/files/${plate.picture}`}
-                      alt=""
-                    />
-                    <span>{plate.title}</span>
-                  </Link>
+                  <button onClick={clearSearch}>
+                    <Link
+                      to={`/details/${plate.id}`}
+                      className="flex items-center"
+                    >
+                      <img
+                        src={`${api.defaults.baseURL}/files/${plate.picture}`}
+                        alt=""
+                      />
+                      <span>{plate.title}</span>
+                    </Link>
+                  </button>
                 </li>
               ))}
           </ul>

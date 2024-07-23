@@ -28,19 +28,17 @@ export function SignIn() {
           <Input
             type="text"
             placeholder="Exemplo: exemplo@exemplo.com.br"
-            labelId="email"
-            htmlFor="email"
             id="email"
             title="Email"
+            autoComplete="email"
             primary
             onChange={(e) => setEmail(e.target.value)}
           />
           <Input
             type="password"
             placeholder="No mínimo 6 caracteres"
-            labelId="password"
-            htmlFor="password"
             id="password"
+            autoComplete="current-password"
             title="Senha"
             primary
             onChange={(e) => setPassword(e.target.value)}

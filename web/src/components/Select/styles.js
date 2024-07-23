@@ -4,10 +4,7 @@ export const Container = styled.div`
   width: 100%;
   position: relative;
 
-  font-family: 'Roboto', sans-serif;
-
   #select-button {
-    margin-top: 0.5rem;
     height: 4.8rem;
     display: flex;
     padding: 1.6rem;
@@ -36,12 +33,12 @@ export const Container = styled.div`
 
   #options-view-button:focus + #select-button,
   #options-view-button:checked + #select-button {
-    outline: 1px solid ${({ theme }) => theme.COLORS.CAKE_200};
+    outline: 1px solid ${({ theme }) => theme.COLORS.WHITE};
   }
 
   #category-select:has(#options-view-button:checked) label,
   #options-view-button:checked + #select-button #chevrons {
-    color: ${({ theme }) => theme.COLORS.CAKE_200};
+    color: ${({ theme }) => theme.COLORS.WHITE};
   }
 
   #options-view-button:checked + #select-button #chevrons .chevron-down {
@@ -58,6 +55,10 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+
+    > label {
+      color: ${({ theme }) => theme.COLORS.LIGHT_400};
+    }
   }
 
   #options-view-button {

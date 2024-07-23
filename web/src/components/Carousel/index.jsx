@@ -20,11 +20,14 @@ export function Carousel({ children }) {
           breakpoints: {
             1024: {
               focus: 0,
-              padding: { left: 10, right: 20 },
+              start: 0,
               type: 'loop',
               gap: '27px',
             },
           },
+        }}
+        onClick={(_slide, e) => {
+          console.log(e)
         }}
       >
         <SplideTrack>{children}</SplideTrack>

@@ -3,11 +3,10 @@ import { Container } from './styles'
 
 export function Input({
   icon: Icon,
-  htmlFor,
-  labelTitle,
   title,
   nameClass,
-  primary,
+  labelTitle,
+  primary = false,
   ...rest
 }) {
   return (
@@ -15,7 +14,7 @@ export function Input({
       <p>{title}</p>
       <div>
         <input {...rest} />
-        <label htmlFor={htmlFor}>
+        <label>
           {Icon && Icon === Check ? (
             <Icon size={24} color="#10b981" />
           ) : (

@@ -11,6 +11,11 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.COLORS.LIGHT_400};
   }
 
+  > div:has(input:focus),
+  > div:has(input[type='file']:focus) {
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.COLORS.WHITE};
+  }
+
   > div {
     width: 100%;
     height: 4.8rem;
@@ -41,6 +46,7 @@ export const Container = styled.div`
       background: transparent;
       border: none;
       outline: none;
+      box-shadow: none !important;
 
       color: ${({ theme }) => theme.COLORS.LIGHT_100};
 
@@ -50,7 +56,17 @@ export const Container = styled.div`
     }
 
     input[type='file'] {
-      display: none;
+      /* display: none; */
+
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
     }
   }
 `
