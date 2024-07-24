@@ -1,5 +1,6 @@
-import { useState } from 'react'
 import { Container } from './styles'
+
+import { useState } from 'react'
 
 import {
   CakeSlice,
@@ -10,98 +11,101 @@ import {
   Utensils,
 } from 'lucide-react'
 
-export function SelectInput({ onClick, categorySelected, nameClass }) {
-  const [selectedValue, setSelectedValue] = useState(
-    categorySelected || 'Selecione a categoria',
+export function SelectInput({ nameClass }) {
+  const [displayOptionSelected, setDisplayOptionSelected] = useState(
+    'Selecione a categoria',
   )
 
-  // const selectedValue = document.getElementById('selected-value')
-  const optionsViewButton = document.getElementById('options-view-button')
-  const inputsOptions = document.querySelectorAll('.option input')
+  const [openOptions, setOpenOptions] = useState(false)
 
-  function displayCategorySelected(inputValue) {
-    console.log(inputValue)
+  function handleSelectAndCloseOptions(event) {
+    setDisplayOptionSelected(event.target.dataset.label)
 
-    setSelectedValue(inputValue)
-
-    // inputsOptions.forEach((input) => {
-    //   input.addEventListener('click', (event) => {
-    //     selectedValue.textContent = input.dataset.label
-
-    //     console.log(categorySelected)
-
-    //     const isMouseOrTouch =
-    //       event.pointerType === 'mouse' || event.pointerType === 'touch'
-
-    //     isMouseOrTouch && optionsViewButton.click()
-    //   })
-    // })
+    setOpenOptions(false)
   }
+
+  // const selectedValue = document.getElementById('selected-value')
+  // const optionsViewButton = document.getElementById('options-view-button')
+  // const inputsOptions = document.querySelectorAll('.option input')
+
+  // inputsOptions.forEach((input) => {
+  //   input.addEventListener('click', (event) => {
+  //     selectedValue.textContent = input.dataset.label
+
+  //     console.log(categorySelected)
+
+  //     const isMouseOrTouch =
+  //       event.pointerType === 'mouse' || event.pointerType === 'touch'
+
+  //     isMouseOrTouch && optionsViewButton.click()
+  //   })
+  // })
 
   return (
     <Container className={`select ${nameClass}`}>
-      <div id="category-select">
-        <label htmlFor="options-view-button">Categoria</label>
-        <input type="checkbox" id="options-view-button" />
+      <div className={`select ${nameClass}`}>
+        <div id="category-select">
+          <label htmlFor="options-view-button">Categoria</label>
+          <input
+            type="checkbox"
+            id="options-view-button"
+            onClick={() => setOpenOptions(!openOptions)}
+          />
 
-        <div id="select-button">
-          {/* <div id="selected-value">Selecione a categoria</div> */}
-          {categorySelected ? (
-            <div id="selected-value">{selectedValue}</div>
-          ) : (
-            <div id="selected-value">Selecione a categoria</div>
-          )}
+          <div id="select-button">
+            <div id="selected-value">{displayOptionSelected}</div>
 
-          <div id="chevrons">
-            <ChevronDown className="chevron-down" />
-            <ChevronUp className="chevron-up" />
+            <div id="chevrons">
+              <ChevronDown className="chevron-down" />
+              <ChevronUp className="chevron-up" />
+            </div>
           </div>
         </div>
+
+        <ul id="options" data-set-open-options={openOptions}>
+          <li className="option">
+            <input
+              type="radio"
+              name="category"
+              value="meal"
+              data-label="Refeição"
+              onClick={(e) => handleSelectAndCloseOptions(e)}
+            />
+
+            <Utensils />
+            <span className="label">Refeição</span>
+            <Check />
+          </li>
+
+          <li className="option">
+            <input
+              type="radio"
+              name="category"
+              value="dessert"
+              data-label="Sobremesa"
+              onClick={(e) => handleSelectAndCloseOptions(e)}
+            />
+
+            <Utensils />
+            <span className="label">Sobremesa</span>
+            <Check />
+          </li>
+
+          <li className="option">
+            <input
+              type="radio"
+              name="category"
+              value="drink"
+              data-label="Bebida"
+              onClick={(e) => handleSelectAndCloseOptions(e)}
+            />
+
+            <Utensils />
+            <span className="label">Bebida</span>
+            <Check />
+          </li>
+        </ul>
       </div>
-
-      <ul id="options">
-        <li className="option">
-          <input
-            type="radio"
-            name="category"
-            value="refeicao"
-            data-label="Refeicao"
-            onClick={(e) => displayCategorySelected(e.target.value)}
-          />
-
-          <Utensils />
-          <span className="label">Refeição</span>
-          <Check />
-        </li>
-
-        <li className="option">
-          <input
-            type="radio"
-            name="category"
-            value="sobremesas"
-            data-label="Sobremesas"
-            onClick={onClick}
-          />
-
-          <CakeSlice />
-          <span className="label">Sobremesas</span>
-          <Check />
-        </li>
-
-        <li className="option">
-          <input
-            type="radio"
-            name="category"
-            value="bebidas"
-            data-label="Bebidas"
-            onClick={onClick}
-          />
-
-          <CupSoda />
-          <span className="label">Bebidas</span>
-          <Check />
-        </li>
-      </ul>
     </Container>
   )
 }

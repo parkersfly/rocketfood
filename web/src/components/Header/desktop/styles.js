@@ -35,6 +35,11 @@ export const Search = styled.div`
   max-width: 58.6rem;
   position: relative;
 
+  div:has(input:focus) {
+    outline: transparent;
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.COLORS.WHITE};
+  }
+
   > div {
     height: 4.8rem;
     padding-left: 9rem;

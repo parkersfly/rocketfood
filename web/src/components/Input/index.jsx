@@ -6,6 +6,7 @@ export function Input({
   title,
   nameClass,
   labelTitle,
+  htmlFor,
   primary = false,
   ...rest
 }) {
@@ -14,7 +15,7 @@ export function Input({
       <p>{title}</p>
       <div>
         <input {...rest} />
-        <label>
+        <label htmlFor={htmlFor}>
           {Icon && Icon === Check ? (
             <Icon size={24} color="#10b981" />
           ) : (

@@ -138,6 +138,7 @@ export function NewPlate() {
 
             <Input
               title="Preço"
+              type="number"
               nameClass="price"
               placeholder="R$ 00,00"
               onChange={(e) => setPrice(e.target.value)}

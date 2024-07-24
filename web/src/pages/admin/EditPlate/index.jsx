@@ -90,8 +90,6 @@ export function EditPlate() {
     fetchPlate()
   }, [])
 
-  console.log(data.description)
-
   return (
     <Container>
       <Content className="flex column">
@@ -125,7 +123,6 @@ export function EditPlate() {
 
             <SelectInput
               nameClass="category"
-              categorySelected={data.category}
               onClick={(e) => setCategory(e.target.value)}
             />
           </div>

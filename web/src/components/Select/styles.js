@@ -75,15 +75,19 @@ export const Container = styled.div`
 
   #options {
     width: 100%;
-    margin-top: 0.25rem;
+    margin-top: 0.8rem;
 
     position: absolute;
 
-    border-radius: 0.375rem;
-    border: 1px solid #252529;
-    background: #17171a;
+    border-radius: 1rem;
+    border: 1px solid ${({ theme }) => theme.COLORS.DARK_900};
+    background: ${({ theme }) => theme.COLORS.DARK_800};
 
     display: none;
+
+    &[data-set-open-options='true'] {
+      display: block !important;
+    }
   }
 
   .option {
@@ -95,7 +99,7 @@ export const Container = styled.div`
 
     padding: 1.2rem;
 
-    border-bottom: 1px solid #252529;
+    border-bottom: 1px solid ${({ theme }) => theme.COLORS.CAKE_100};
   }
 
   .option .label {
@@ -109,14 +113,14 @@ export const Container = styled.div`
 
   .option svg:last-child {
     margin-left: auto;
-    color: ${({ theme }) => theme.COLORS.CAKE_200};
+    color: ${({ theme }) => theme.COLORS.MINT_100};
     display: none;
   }
 
   .option:has(input:checked),
   .option:hover {
-    border-bottom: 1px solid #252529;
-    background-color: #252529;
+    border-bottom: 1px solid ${({ theme }) => theme.COLORS.DARK_900};
+    background-color: ${({ theme }) => theme.COLORS.DARK_1000};
   }
 
   .option:has(input:focus) {
@@ -134,26 +138,6 @@ export const Container = styled.div`
     inset: 0;
 
     cursor: pointer;
-  }
-
-  .option:nth-child(1) {
-    color: #bb9f3a;
-  }
-
-  .option:nth-child(2) {
-    color: #db5bbf;
-  }
-
-  .option:nth-child(3) {
-    color: ${({ theme }) => theme.COLORS.TOMATO_100};
-  }
-
-  #category-select:has(#options-view-button:checked) + #options {
-    display: block;
-  }
-
-  .select:has(.option input:checked) #category-select label {
-    color: #a881e6;
   }
 
   .select:has(.option input:checked) #selected-value {

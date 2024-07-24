@@ -56,6 +56,7 @@ export function Menu({ menuIsOpen, setMenuIsOpen }) {
             placeholder="Busque por pratos ou ingredientes"
             onChange={(e) => setSearch(e.target.value)}
             value={search}
+            primary
           />
 
           <ul>

@@ -9,13 +9,25 @@ import { useAuth } from '../../../hooks/auth'
 import { api } from '../../../services/api'
 
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export function Desktop() {
   const [search, setSearch] = useState('')
   const [plates, setPlates] = useState([])
 
   const { user, signOut } = useAuth()
+
+  const navigate = useNavigate()
+
+  function handleSignOut() {
+    navigate('/')
+
+    signOut()
+  }
+
+  function clearSearch() {
+    setSearch('')
+  }
 
   useEffect(() => {
     async function fetchPlates() {
@@ -50,20 +62,26 @@ export function Desktop() {
             className=""
             placeholder="Busque por pratos ou ingredientes"
             onChange={(e) => setSearch(e.target.value)}
+            value={search}
           />
         </div>
         <ul>
           {search.length > 0 &&
             plates.map((plate, index) => (
               <li key={index}>
-                <Link to={`/details/${plate.id}`} className="flex items-center">
-                  <img
-                    src={`${api.defaults.baseURL}/files/${plate.picture}`}
-                    alt=""
-                    loading="lazy"
-                  />
-                  <span>{plate.title}</span>
-                </Link>
+                <button onClick={clearSearch}>
+                  <Link
+                    to={`/details/${plate.id}`}
+                    className="flex items-center"
+                  >
+                    <img
+                      src={`${api.defaults.baseURL}/files/${plate.picture}`}
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span>{plate.title}</span>
+                  </Link>
+                </button>
               </li>
             ))}
         </ul>
@@ -87,7 +105,7 @@ export function Desktop() {
         </Link>
       )}
 
-      <button onClick={signOut}>
+      <button onClick={handleSignOut}>
         <SignOut size={32} />
       </button>
     </DesktopMenuContainer>

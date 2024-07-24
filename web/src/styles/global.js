@@ -9,12 +9,13 @@ export default createGlobalStyle`
 
   :root {
     font-size: 62.5%;
-  }
 
-  :focus {
-  outline: transparent;
-  box-shadow: 0 0 0 2px ${({ theme }) => theme.COLORS.WHITE};
-}
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
 
   body {
    background: ${({ theme }) => theme.COLORS.DARK_400};

@@ -16,6 +16,11 @@ export const Container = styled.textarea`
 
   resize: none;
 
+  &:focus {
+    outline: transparent;
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.COLORS.WHITE};
+  }
+
   &::placeholder {
     font-family: 'Roboto', sans-serif;
     color: ${({ theme }) => theme.COLORS.LIGHT_500};
