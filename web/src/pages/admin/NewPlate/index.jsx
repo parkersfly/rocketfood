@@ -111,6 +111,7 @@ export function NewPlate() {
 
             <SelectInput
               nameClass="category"
+              setCategory={setCategory}
               onClick={(e) => setCategory(e.target.value)}
             />
           </div>
@@ -138,7 +139,7 @@ export function NewPlate() {
 
             <Input
               title="Preço"
-              type="number"
+              type="text"
               nameClass="price"
               placeholder="R$ 00,00"
               onChange={(e) => setPrice(e.target.value)}

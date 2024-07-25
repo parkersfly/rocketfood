@@ -31,9 +31,9 @@ export function Home() {
       </Banner>
 
       <main className="flex column">
-        <CarouselSection title="Refeição" category="refeicao" />
-        <CarouselSection title="Sobremesas" category="sobremesas" />
-        <CarouselSection title="Bebidas" category="bebidas" />
+        <CarouselSection title="Refeição" category="meal" />
+        <CarouselSection title="Sobremesas" category="dessert" />
+        <CarouselSection title="Bebidas" category="drink" />
       </main>
     </Container>
   )

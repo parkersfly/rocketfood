@@ -1,20 +1,24 @@
 import { Container } from './styles'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {
   CakeSlice,
-  Check,
   ChevronDown,
   ChevronUp,
-  CupSoda,
-  Utensils,
+  Check,
+  Beef,
+  Beer,
 } from 'lucide-react'
 
-export function SelectInput({ nameClass }) {
-  const [displayOptionSelected, setDisplayOptionSelected] = useState(
-    'Selecione a categoria',
-  )
+const DishesCategory = [
+  { id: 1, value: 'meal', dataLabel: 'Refeição', icon: <Beef /> },
+  { id: 2, value: 'dessert', dataLabel: 'Sobremesa', icon: <CakeSlice /> },
+  { id: 3, value: 'drink', dataLabel: 'Drink', icon: <Beer /> },
+]
+
+export function SelectInput({ nameClass, setCategory, category }) {
+  const [displayOptionSelected, setDisplayOptionSelected] = useState('')
 
   const [openOptions, setOpenOptions] = useState(false)
 
@@ -22,24 +26,36 @@ export function SelectInput({ nameClass }) {
     setDisplayOptionSelected(event.target.dataset.label)
 
     setOpenOptions(false)
+
+    setCategory(event.target.value)
   }
 
-  // const selectedValue = document.getElementById('selected-value')
-  // const optionsViewButton = document.getElementById('options-view-button')
-  // const inputsOptions = document.querySelectorAll('.option input')
+  window.addEventListener('keydown', (e) => {
+    if (!openOptions) return
 
-  // inputsOptions.forEach((input) => {
-  //   input.addEventListener('click', (event) => {
-  //     selectedValue.textContent = input.dataset.label
+    if (e.key === 'Escape') {
+      setOpenOptions(false)
+    }
+  })
 
-  //     console.log(categorySelected)
+  useEffect(() => {
+    switch (category) {
+      case 'meal':
+        setDisplayOptionSelected('Refeição')
+        break
 
-  //     const isMouseOrTouch =
-  //       event.pointerType === 'mouse' || event.pointerType === 'touch'
+      case 'dessert':
+        setDisplayOptionSelected('Sobremesa')
+        break
 
-  //     isMouseOrTouch && optionsViewButton.click()
-  //   })
-  // })
+      case 'drink':
+        setDisplayOptionSelected('Bebida')
+        break
+
+      default:
+        setDisplayOptionSelected('Selecione a categoria')
+    }
+  }, [category])
 
   return (
     <Container className={`select ${nameClass}`}>
@@ -63,47 +79,24 @@ export function SelectInput({ nameClass }) {
         </div>
 
         <ul id="options" data-set-open-options={openOptions}>
-          <li className="option">
-            <input
-              type="radio"
-              name="category"
-              value="meal"
-              data-label="Refeição"
-              onClick={(e) => handleSelectAndCloseOptions(e)}
-            />
+          {DishesCategory.map((disheCategory) => {
+            const { id, value, dataLabel, icon } = disheCategory
+            return (
+              <li key={id} className="option">
+                <input
+                  type="radio"
+                  name="category"
+                  value={value}
+                  data-label={dataLabel}
+                  onClick={(e) => handleSelectAndCloseOptions(e)}
+                />
 
-            <Utensils />
-            <span className="label">Refeição</span>
-            <Check />
-          </li>
-
-          <li className="option">
-            <input
-              type="radio"
-              name="category"
-              value="dessert"
-              data-label="Sobremesa"
-              onClick={(e) => handleSelectAndCloseOptions(e)}
-            />
-
-            <Utensils />
-            <span className="label">Sobremesa</span>
-            <Check />
-          </li>
-
-          <li className="option">
-            <input
-              type="radio"
-              name="category"
-              value="drink"
-              data-label="Bebida"
-              onClick={(e) => handleSelectAndCloseOptions(e)}
-            />
-
-            <Utensils />
-            <span className="label">Bebida</span>
-            <Check />
-          </li>
+                {icon}
+                <span className="label">{dataLabel}</span>
+                <Check />
+              </li>
+            )
+          })}
         </ul>
       </div>
     </Container>

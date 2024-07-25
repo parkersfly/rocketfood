@@ -20,7 +20,6 @@ export function Carousel({ children }) {
           breakpoints: {
             1024: {
               focus: 0,
-              start: 0,
               type: 'loop',
               gap: '27px',
             },

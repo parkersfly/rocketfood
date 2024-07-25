@@ -66,22 +66,26 @@ export const Search = styled.div`
     overflow-y: scroll;
     list-style: none;
     position: absolute;
-    z-index: 2;
+    z-index: 5;
 
     li {
       background-color: ${({ theme }) => theme.COLORS.DARK_800};
       border-radius: 0 0 0.5rem 0.5rem;
 
-      a {
-        padding: 1rem;
-        gap: 1rem;
-        z-index: 2;
+      button {
+        width: 100%;
 
-        img {
-          width: 5rem;
-          height: 5rem;
-          object-fit: cover;
-          border-radius: 50%;
+        a {
+          padding: 1rem;
+          gap: 1rem;
+          z-index: 2;
+
+          img {
+            width: 5rem;
+            height: 5rem;
+            object-fit: cover;
+            border-radius: 50%;
+          }
         }
       }
     }

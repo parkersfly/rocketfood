@@ -97,9 +97,14 @@ export const Container = styled.div`
 
     position: relative;
 
-    padding: 1.2rem;
+    padding: 1.6rem;
 
-    border-bottom: 1px solid ${({ theme }) => theme.COLORS.CAKE_100};
+    line-height: 1;
+    border-bottom: 1px solid ${({ theme }) => theme.COLORS.GRAY_700};
+  }
+
+  .option:last-child {
+    border-bottom: none !important;
   }
 
   .option .label {
@@ -142,5 +147,17 @@ export const Container = styled.div`
 
   .select:has(.option input:checked) #selected-value {
     color: #fbf9fe;
+  }
+
+  .option:nth-child(1) {
+    color: #f87171;
+  }
+
+  .option:nth-child(2) {
+    color: #fda4af;
+  }
+
+  .option:nth-child(3) {
+    color: #fdba74;
   }
 `

@@ -123,6 +123,8 @@ export function EditPlate() {
 
             <SelectInput
               nameClass="category"
+              category={data.category}
+              setCategory={setCategory}
               onClick={(e) => setCategory(e.target.value)}
             />
           </div>
@@ -151,6 +153,7 @@ export function EditPlate() {
             <Input
               title="Preço"
               nameClass="price"
+              type="text"
               placeholder={`R$ ${data.price}`}
               onChange={(e) => setPrice(e.target.value)}
             />

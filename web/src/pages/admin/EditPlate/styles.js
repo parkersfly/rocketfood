@@ -130,6 +130,9 @@ export const Form = styled.form`
     }
 
     .button-wrapper {
+      button {
+        width: max-content;
+      }
       justify-content: end;
     }
   }
