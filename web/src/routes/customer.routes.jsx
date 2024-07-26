@@ -1,15 +1,17 @@
+import { DefaultLayout } from '../Layouts/DefaultLayout'
+
 import { Routes, Route } from 'react-router-dom'
 
-import { Home } from '../pages/Home'
 import { Details } from '../pages/Details'
-
-import { DefaultLayout } from '../Layouts/DefaultLayout'
+import { Orders } from '../pages/Orders'
+import { Home } from '../pages/Home'
 
 export function CustomerRoutes() {
   return (
     <Routes>
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/orders" element={<Orders />} />
         <Route path="/details/:id" element={<Details />} />
       </Route>
     </Routes>
