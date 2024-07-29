@@ -6,73 +6,121 @@ import {
   FinalizePayment,
   PaymentMethods,
   CardInfoPayment,
+  DisheDetailsCard,
 } from './styles'
 
 import React, { useState } from 'react'
 import QRCode from 'qrcode.react'
 import { v4 as uuidv4 } from 'uuid'
 
+import bolinhos from '../../assets/plates/bolinhos.jpg'
+import pix from '../../assets/icons/pix.svg'
+
+import { ChefHat, BadgeX, CreditCard } from 'lucide-react'
+
+import { Button } from '../../components/Button'
+
 export function Orders() {
   const [qrData, setQrData] = useState(uuidv4())
+  const [dishe, setDishe] = useState(true)
+  const [pix, setPix] = useState(true)
+  const [card, setCard] = useState(false)
 
   function generateNewQRCode() {
     setQrData(uuidv4())
+
+    setPix(true)
+    setCard(false)
+  }
+
+  function handlePaymentWithCard() {
+    setPix(false)
+    setCard(true)
   }
 
   return (
     <OrdersContainer>
       <OrderDetails>
-        <h3>Meu pedido</h3>
-
         <DisheDetails>
-          <div>
-            <img src="" alt="" />
-            <div>
-              <p>1 x Salada Radish</p>
-              <button>Excluir</button>
+          <h3>Meu pedido</h3>
+
+          {dishe ? (
+            <div className="cardsWrapper">
+              <DisheDetailsCard>
+                <img src={bolinhos} alt="" />
+                <div>
+                  <div>
+                    <p>1 x Salada Radish</p>
+                    <span>R$ 25,97</span>
+                  </div>
+
+                  <button>Excluir</button>
+                </div>
+              </DisheDetailsCard>
             </div>
-            <span>R$ 25,97</span>
-          </div>
+          ) : (
+            <button className="noOrder">
+              <div>
+                <p>Opss...Nada encontrado</p>
+                <BadgeX />
+              </div>
+
+              <div>
+                <p>Escolha um prato em nosso cardápio</p>
+                <ChefHat />
+              </div>
+            </button>
+          )}
         </DisheDetails>
 
-        <p>Total: R$ 103,88</p>
+        <div>
+          <p>Total: R$ 103,88</p>
+
+          <div>
+            <Button text="Avançar" />
+          </div>
+        </div>
       </OrderDetails>
 
       <Payment>
         <h3>Pagamento</h3>
 
         <FinalizePayment>
-          <button onClick={() => generateNewQRCode}>
-            icon
-            <span>PIX</span>
-          </button>
+          <div>
+            <button onClick={generateNewQRCode}>
+              <img src={pix} alt="" />
+              <span>PIX</span>
+            </button>
 
-          <button>
-            icon
-            <span>Crédito</span>
-          </button>
+            <button onClick={handlePaymentWithCard}>
+              <CreditCard />
+              <span>Crédito</span>
+            </button>
+          </div>
 
           <PaymentMethods>
-            <QRCode value={qrData} />
+            {pix && <QRCode value={qrData} />}
 
-            <CardInfoPayment>
-              <div>
-                <label htmlFor="cardNumber">Número do Cartão</label>
-                <input type="number" />
-              </div>
+            {card && (
+              <CardInfoPayment>
+                <div>
+                  <label htmlFor="cardNumber">Número do Cartão</label>
+                  <input type="number" />
+                </div>
 
-              <div>
-                <label htmlFor="cardValidity">Validade</label>
-                <input type="date" />
-              </div>
+                <div>
+                  <label htmlFor="cardValidity">Validade</label>
+                  <input type="date" />
+                </div>
 
-              <div>
-                <label htmlFor="cvc">CVC</label>
-                <input type="number" />
-              </div>
+                <div>
+                  <label htmlFor="cvc">CVC</label>
+                  <input type="number" />
+                </div>
 
-              <button type="submit">icon Finalizar pagamento</button>
-            </CardInfoPayment>
+                <button type="submit">icon Finalizar pagamento</button>
+              </CardInfoPayment>
+            )}
           </PaymentMethods>
         </FinalizePayment>
       </Payment>
