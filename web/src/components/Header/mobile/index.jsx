@@ -9,11 +9,18 @@ import { useAuth } from '../../../hooks/auth'
 import { Menu } from '../../Menu'
 
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export function Mobile() {
   const [menuIsOpen, setMenuIsOpen] = useState(false)
 
   const { user } = useAuth()
+
+  const navigate = useNavigate()
+
+  function handleProceedToPageOrders() {
+    navigate('/orders')
+  }
 
   return (
     <MobileContainer className="flex items-center">
@@ -33,7 +40,7 @@ export function Mobile() {
 
       {[USER_ROLE.CUSTOMER].includes(user.role) && (
         <Order>
-          <button className="request">
+          <button className="request" onClick={handleProceedToPageOrders}>
             <Receipt size={32} />
             <div>
               <p>0</p>

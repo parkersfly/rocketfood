@@ -94,7 +94,7 @@ export function Desktop() {
       )}
 
       {[USER_ROLE.CUSTOMER].includes(user.role) && (
-        <Link to="/requests" className="flex items-center justify-center">
+        <Link to="/orders" className="flex items-center justify-center">
           <Receipt size={32} />
           Pedidos
           <div className="flex items-center justify-center">

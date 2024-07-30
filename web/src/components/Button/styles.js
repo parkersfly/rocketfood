@@ -4,7 +4,7 @@ import { RESIZE_WINDOW } from '../../styles/resizeWindow'
 
 export const Container = styled.button`
   width: 100%;
-  height: 5.6rem;
+  height: 4.8rem;
 
   display: flex;
   justify-content: center;
@@ -22,6 +22,6 @@ export const Container = styled.button`
 
   @media (min-width: ${RESIZE_WINDOW.LG}) {
     padding: 1.2rem 2.4rem;
-    height: 4.8rem !important;
+    height: 5.6rem !important;
   }
 `
