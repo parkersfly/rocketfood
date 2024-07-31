@@ -60,6 +60,11 @@ export function Orders() {
     setPaymentDisplay(true)
   }
 
+  function awaitingThePayment() {
+    setCard(false)
+    setAwaitingPayment(true)
+  }
+
   return (
     <OrdersContainer>
       <OrderDetails data-display-order-details-section={orderDetailsDisplay}>
@@ -136,7 +141,11 @@ export function Orders() {
                   <Input title="cvc" type="number" placeholder="000" />
                 </div>
 
-                <Button text="Finalizar pagamento" icon={Receipt} />
+                <Button
+                  text="Finalizar pagamento"
+                  icon={Receipt}
+                  onClick={awaitingThePayment}
+                />
               </CardInfoPayment>
             )}
 

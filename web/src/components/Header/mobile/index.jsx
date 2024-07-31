@@ -1,4 +1,4 @@
-import { MobileContainer, Order } from './styles'
+import { NavMobileContainer, Order } from './styles'
 
 import { List, Receipt } from '@phosphor-icons/react'
 
@@ -23,7 +23,7 @@ export function Mobile() {
   }
 
   return (
-    <MobileContainer className="flex items-center">
+    <NavMobileContainer className="flex items-center">
       <button onClick={() => setMenuIsOpen(!menuIsOpen)}>
         <List size={32} />
       </button>
@@ -48,6 +48,6 @@ export function Mobile() {
           </button>
         </Order>
       )}
-    </MobileContainer>
+    </NavMobileContainer>
   )
 }

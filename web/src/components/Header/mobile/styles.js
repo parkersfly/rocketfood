@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const MobileContainer = styled.div`
+export const NavMobileContainer = styled.div`
   width: 100%;
 
   justify-content: space-between;

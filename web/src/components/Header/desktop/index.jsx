@@ -1,4 +1,4 @@
-import { DesktopMenuContainer, Search } from './styles'
+import { NavDesktopContainer, Search } from './styles'
 
 import { Logo } from '../../Logo'
 
@@ -39,53 +39,66 @@ export function Desktop() {
   }, [search])
 
   return (
-    <DesktopMenuContainer>
-      {[USER_ROLE.ADMIN].includes(user.role) && (
-        <>
-          <div className="content flex items-center justify-center">
-            <Logo admin />
+    <NavDesktopContainer>
+      <div>
+        {[USER_ROLE.ADMIN].includes(user.role) && (
+          <>
+            <div className="content flex items-center justify-center">
+              <Logo admin />
+            </div>
+          </>
+        )}
+        {[USER_ROLE.CUSTOMER].includes(user.role) && (
+          <>
+            <div className="content flex items-center justify-center">
+              <Logo />
+            </div>
+          </>
+        )}
+        <Search>
+          <div className="flex items-center justify-center">
+            <MagnifyingGlass size={24} color="#C4C4CC" />
+            <input
+              type="text"
+              className=""
+              placeholder="Busque por pratos ou ingredientes"
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
+            />
           </div>
-        </>
-      )}
-      {[USER_ROLE.CUSTOMER].includes(user.role) && (
-        <>
-          <div className="content flex items-center justify-center">
-            <Logo />
-          </div>
-        </>
-      )}
-      <Search>
-        <div className="flex items-center justify-center">
-          <MagnifyingGlass size={24} color="#C4C4CC" />
-          <input
-            type="text"
-            className=""
-            placeholder="Busque por pratos ou ingredientes"
-            onChange={(e) => setSearch(e.target.value)}
-            value={search}
-          />
-        </div>
-        <ul>
-          {search.length > 0 &&
-            plates.map((plate, index) => (
-              <li key={index}>
-                <button onClick={clearSearch}>
-                  <Link
-                    to={`/details/${plate.id}`}
-                    className="flex items-center"
-                  >
-                    <img
-                      src={`${api.defaults.baseURL}/files/${plate.picture}`}
-                      alt=""
-                      loading="lazy"
-                    />
-                    <span>{plate.title}</span>
-                  </Link>
-                </button>
-              </li>
-            ))}
-        </ul>
-      </Search>
+          <ul>
+            {search.length > 0 &&
+              plates.map((plate, index) => (
+                <li key={index}>
+                  <button onClick={clearSearch}>
+                    <Link
+                      to={`/details/${plate.id}`}
+                      className="flex items-center"
+                    >
+                      <img
+                        src={`${api.defaults.baseURL}/files/${plate.picture}`}
+                        alt=""
+                        loading="lazy"
+                      />
+                      <span>{plate.title}</span>
+                    </Link>
+                  </button>
+                </li>
+              ))}
+          </ul>
+        </Search>
+
+        <nav>
+          <ul className="linksNavWrapper">
+            <li>
+              <Link to="/favorites">Meus favoritos</Link>
+            </li>
+            <li>
+              <Link to="/historic">Histórico de pedidos</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
       {[USER_ROLE.ADMIN].includes(user.role) && (
         <Link to="/new" className="flex items-center justify-center">
@@ -94,7 +107,7 @@ export function Desktop() {
       )}
 
       {[USER_ROLE.CUSTOMER].includes(user.role) && (
-        <Link to="/orders" className="flex items-center justify-center">
+        <Link to="/orders" className="flex items-center justify-center orders">
           <Receipt size={32} />
           Pedidos
           <div className="flex items-center justify-center">
@@ -108,6 +121,6 @@ export function Desktop() {
       <button onClick={handleSignOut}>
         <SignOut size={32} />
       </button>
-    </DesktopMenuContainer>
+    </NavDesktopContainer>
   )
 }
