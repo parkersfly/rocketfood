@@ -13,13 +13,14 @@ import { PencilIcon } from 'lucide-react'
 import { api } from '../../../services/api'
 
 export function Card({ data, ...rest }) {
-  const { user } = useAuth()
   const [orders, setOrders] = useState(1)
   const [ordersInCart, setOrdersInCart] = useState([])
-
   const [plateImage, setPlateImage] = useState(
     `${api.defaults.baseURL}/files/${data.picture}`,
   )
+  const [addDishToFavorites, setAddDishToFavorites] = useState(false)
+
+  const { user } = useAuth()
 
   function handleAddItem() {
     setOrders((prevState) => prevState + 1)
@@ -31,14 +32,8 @@ export function Card({ data, ...rest }) {
     }
   }
 
-  function addOrdersToCart() {
-    console.log('a')
-  }
-
-  function handleFavoritePlate() {
-    const favorite = document.querySelector('#favorite')
-
-    console.log(data)
+  function handleAddDishToFavorites() {
+    setAddDishToFavorites(!addDishToFavorites)
   }
 
   function displayAmountDishesToAddOrRemove() {
@@ -48,6 +43,8 @@ export function Card({ data, ...rest }) {
       return `0${orders}`
     }
   }
+
+  const heartClicked = addDishToFavorites ? 'fill' : 'regular'
 
   return (
     <Container {...rest}>
@@ -59,10 +56,11 @@ export function Card({ data, ...rest }) {
       {[USER_ROLE.CUSTOMER].includes(user.role) && (
         <button
           id="favorite"
-          onClick={handleFavoritePlate}
-          className="heartNotClicked"
+          className="likeDishButton"
+          data-add-dish-to-favorites={addDishToFavorites}
+          onClick={() => handleAddDishToFavorites()}
         >
-          <Heart size={24} />
+          <Heart size={24} weight={heartClicked} />
         </button>
       )}
       <div className="h-full flex column items-center justify-center web">
@@ -87,7 +85,7 @@ export function Card({ data, ...rest }) {
               <Plus size={24} />
             </button>
           </div>
-          <Button onClick={addOrdersToCart} text="incluir" />
+          <Button text="incluir" />
         </div>
       )}
     </Container>

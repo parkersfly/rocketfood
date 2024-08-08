@@ -41,26 +41,38 @@ export const Container = styled.div`
     display: none;
   }
 
-  .heartNotClicked {
+  .likeDishButton {
     position: absolute;
     top: 1.6rem;
     right: 1.6rem;
 
     background: none;
     border: none;
+
+    &[data-add-dish-to-favorites='true'] {
+      svg {
+        color: ${({ theme }) => theme.COLORS.TOMATO_300};
+      }
+    }
   }
 
-  .heartClicked {
-    display: none;
-    position: absolute;
-    top: 1.6rem;
-    right: 1.6rem;
-
-    background: none;
-    border: none;
+  .likeDishButton:active {
+    animation: heartLiked 0.5s;
   }
 
-  .pencil {
+  @keyframes heartLiked {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .likeDishButton .pencil {
     position: absolute;
     top: 1.6rem;
     right: 1.6rem;
