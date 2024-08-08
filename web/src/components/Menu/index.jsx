@@ -5,7 +5,7 @@ import { MagnifyingGlass } from '@phosphor-icons/react'
 import { Input } from '../Input'
 import { Footer } from '../Footer'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/auth'
 import { USER_ROLE } from '../../utils/role'
 
@@ -17,11 +17,15 @@ export function Menu({ menuIsOpen, setMenuIsOpen }) {
   const [search, setSearch] = useState('')
   const [plates, setPlates] = useState([])
 
+  const navigate = useNavigate()
+
   const { user } = useAuth()
 
   const { signOut } = useAuth()
 
   function handleSignOut() {
+    navigate('')
+
     signOut()
   }
 
@@ -29,6 +33,12 @@ export function Menu({ menuIsOpen, setMenuIsOpen }) {
     setMenuIsOpen(false)
 
     setSearch('')
+  }
+
+  function handleRunToPathSelected(path) {
+    setMenuIsOpen(false)
+
+    navigate(path)
   }
 
   useEffect(() => {
@@ -83,14 +93,26 @@ export function Menu({ menuIsOpen, setMenuIsOpen }) {
         <div className="options">
           {[USER_ROLE.ADMIN].includes(user.role) && (
             <div className="optionBox">
-              <Link to="/new">Novo prato</Link>
+              <button onClick={() => handleRunToPathSelected('/new')}>
+                Novo prato
+              </button>
             </div>
           )}
 
           <div className="optionBox">
-            <button onClick={handleSignOut}>
-              <p>Sair</p>
+            <button onClick={() => handleRunToPathSelected('/historic')}>
+              Histórico de pedidos
             </button>
+          </div>
+
+          <div className="optionBox">
+            <button onClick={() => handleRunToPathSelected('/favorites')}>
+              Meus favoritos
+            </button>
+          </div>
+
+          <div className="optionBox">
+            <button onClick={handleSignOut}>Sair</button>
           </div>
         </div>
       </main>

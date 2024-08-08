@@ -136,6 +136,20 @@ export const OrdersHistoryCards = styled.div`
       display: flex;
       align-items: center;
       gap: 0.8rem;
+
+      svg {
+        &[data-order-status='Pendente'] {
+          color: ${({ theme }) => theme.COLORS.TOMATO_300};
+        }
+
+        &[data-order-status='Preparando'] {
+          color: ${({ theme }) => theme.COLORS.CARROT_100};
+        }
+
+        &[data-order-status='Entregue'] {
+          color: ${({ theme }) => theme.COLORS.MINT_100};
+        }
+      }
     }
   }
 

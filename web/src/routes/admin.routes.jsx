@@ -6,6 +6,7 @@ import { NewPlate } from '../pages/admin/NewPlate'
 import { EditPlate } from '../pages/admin/EditPlate'
 import { DefaultLayout } from '../Layouts/DefaultLayout'
 import { OrdersHistory } from '../pages/OrdersHistory'
+import { Favorites } from '../pages/Favorites'
 
 export function AdminRoutes() {
   return (
@@ -15,6 +16,7 @@ export function AdminRoutes() {
         <Route path="/historic" element={<OrdersHistory />} />
         <Route path="/details/:id" element={<Details />} />
         <Route path="/new" element={<NewPlate />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/edit/:id" element={<EditPlate />} />
       </Route>
     </Routes>

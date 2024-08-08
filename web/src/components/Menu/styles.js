@@ -60,7 +60,6 @@ export const Container = styled.aside`
         list-style: none;
         position: absolute;
         z-index: 2;
-        box-shadow: 0 0 0 2px ${({ theme }) => theme.COLORS.WHITE};
 
         li {
           background-color: ${({ theme }) => theme.COLORS.DARK_800};
@@ -92,10 +91,6 @@ export const Container = styled.aside`
 
       > button {
         height: 3.4rem;
-      }
-
-      p,
-      a {
         font-family: 'Poppins', sans-serif;
         font-size: 2.4rem;
         font-weight: 300;

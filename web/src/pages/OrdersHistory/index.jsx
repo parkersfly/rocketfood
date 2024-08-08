@@ -30,7 +30,7 @@ export function OrdersHistory() {
           {[USER_ROLE.CUSTOMER].includes(user.role) && (
             <div>
               <Circle size={8} weight="fill" data-order-status={orderStatus} />
-              <p>Pendente</p>
+              <p>{orderStatus}</p>
             </div>
           )}
 
