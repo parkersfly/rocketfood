@@ -93,6 +93,7 @@ export function Desktop() {
             <li>
               <Link to="/favorites">Meus favoritos</Link>
             </li>
+
             <li>
               <Link to="/historic">Histórico de pedidos</Link>
             </li>
@@ -101,7 +102,7 @@ export function Desktop() {
       </div>
 
       {[USER_ROLE.ADMIN].includes(user.role) && (
-        <Link to="/new" className="flex items-center justify-center">
+        <Link to="/new" className="flex items-center justify-center newOrder">
           Novo prato
         </Link>
       )}

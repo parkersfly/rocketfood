@@ -7,7 +7,8 @@ export const NavDesktopContainer = styled.div`
   justify-content: space-between;
   margin: 0 auto;
 
-  .orders {
+  .orders,
+  .newOrder {
     width: 18.7rem;
     height: 4.8rem;
     border-radius: 0.5rem;
@@ -26,6 +27,7 @@ export const NavDesktopContainer = styled.div`
   }
 
   > div {
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 3.2rem;
@@ -43,11 +45,12 @@ export const NavDesktopContainer = styled.div`
 
   @media (min-width: 1280px) {
     display: flex;
+    gap: 2.4rem;
   }
 `
 
 export const Search = styled.div`
-  width: 30rem;
+  width: 39%;
   max-width: 58.6rem;
   position: relative;
 

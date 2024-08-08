@@ -21,7 +21,7 @@ export const OrdersHistoryContainer = styled.div`
   }
 
   @media (min-width: ${RESIZE_WINDOW.LG}) {
-    padding: 3.4rem 0;
+    padding: 3.4rem 0 5.6rem;
     gap: 3.4rem;
 
     .webTitle {
@@ -47,6 +47,23 @@ export const OrdersHistoryTable = styled.table`
     border: 1px solid ${({ theme }) => theme.COLORS.DARK_1000};
     border-radius: 0.8rem 0.8rem 0 0;
     overflow: hidden;
+
+    .select-dishe-status {
+      display: flex;
+      align-items: center;
+      padding: 1.6rem;
+      border-radius: 0.5rem;
+      background: ${({ theme }) => theme.COLORS.DARK_900};
+      position: relative;
+    }
+
+    select {
+      font-size: 1.4rem;
+      color: ${({ theme }) => theme.COLORS.LIGHT_400};
+      appearance: none;
+      background: transparent;
+      border: none;
+    }
 
     td,
     th {
@@ -116,10 +133,6 @@ export const OrdersHistoryCards = styled.div`
     }
 
     > div {
-      svg {
-        color: ${({ theme }) => theme.COLORS.TOMATO_300};
-      }
-
       display: flex;
       align-items: center;
       gap: 0.8rem;
